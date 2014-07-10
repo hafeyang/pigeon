@@ -4,6 +4,14 @@ chrome.runtime.onInstalled.addListener(function (details) {
     console.log('previousVersion', details.previousVersion);
 });
 
-chrome.browserAction.setBadgeText({text: '\'Allo'});
+//chrome.browserAction.setBadgeText({text: '13'});
 
-console.log('\'Allo \'Allo! Event Page for Browser Action');
+chrome.webRequest.onBeforeRequest.addListener(function(details) {
+	if(details.url=="http://localhost/a"){
+		return {redirectUrl:"data:text/html,{\"a\":\"1\"}"};
+	}else{
+		return {};
+	}
+}, {urls: ["<all_urls>"],types:["xmlhttprequest","script","main_frame"]}, ["blocking"]);
+
+
