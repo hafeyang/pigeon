@@ -1,4 +1,4 @@
-pecker
+pigeon
 ======
 
-pecker is a frontend develop tool for data mock and validate
+pigeon is a frontend develop tool for data mock and validating
